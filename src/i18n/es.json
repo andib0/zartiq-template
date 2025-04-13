@@ -3,5 +3,6 @@
   "greeting": "¡Bienvenido de nuevo!",
   "add": "Agregar",
   "edit": "Editar",
-  "delete": "Eliminar"
+  "delete": "Eliminar",
+  "increment": "Incrementar"
 }

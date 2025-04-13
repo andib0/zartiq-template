@@ -1,8 +1,8 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const api = axios.create({
   baseURL: "https://api.example.com", // placeholder
-  timeout: 10000,
   headers: {
     "Content-Type": "application/json",
   },
@@ -21,10 +21,11 @@ api.interceptors.response.use(
   (error) => {
     const status = error?.response?.status;
     if (status === 401) {
-      // toast.error("Unauthorized")
+      toast.error(`Unauthorized: ${error.response.data.message}`);
       // redirect to login maybe
     } else if (status >= 500) {
-      // toast.error("Server error")
+      toast.error(`Server error: ${error.response.data.message}`);
+      //internal error
     }
     return Promise.reject(error);
   }
